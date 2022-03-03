@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore src",
     "lintfix": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
     "build:css": "postcss src/styles/index.css -o app/styles/index.css --env production",
-    "watch:css": "postcss src/styles/index.css -o app/assets/index.css",
+    "preview:css": "postcss src/styles/index.css -o app/assets/index.css",
     "build:run": "yarn build:css && yarn build"
   },
   "dependencies": {
