@@ -10315,6 +10315,13 @@ storybook-builder-vite@^0.1.17:
     slash "^3.0.0"
     vite-plugin-mdx "^3.5.6"
 
+storybook-vue3-router@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/storybook-vue3-router/-/storybook-vue3-router-2.2.1.tgz#9bee7b067fd41a65d3a11fb6bfec27490c0f01f3"
+  integrity sha512-ODAPqGwU9XIMrnudWs6k6rJ0RJAeOGfy1o3vzII2hyMGRPScldA4IlPK4LEFEzdih+B801Yt+MbZ6Lu23FvQFg==
+  dependencies:
+    vue-router "4.x"
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -11296,7 +11303,7 @@ vue-loader@^16.0.0, vue-loader@^16.8.3:
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
 
-vue-router@^4.0.13:
+vue-router@4.x, vue-router@^4.0.13:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.13.tgz#47f06e2f8ff6120bfff3c27ade1356cc9de7d870"
   integrity sha512-LmXrC+BkDRLak+d5xTMgUYraT3Nj0H/vCbP+7usGvIl9Viqd1UP6AsP0i69pSbn9O0dXK/xCdp4yPw21HqV9Jw==

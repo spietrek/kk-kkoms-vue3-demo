@@ -1,10 +1,11 @@
+import vueRouter from 'storybook-vue3-router'
 import KkImageCard from './KkImageCard.vue'
 
 export default {
   title: 'Common/Molecules/KkImageCard',
   component: KkImageCard,
   parameters: {},
-  decorators: [],
+  decorators: [vueRouter()],
 }
 
 export const basic = () => ({
