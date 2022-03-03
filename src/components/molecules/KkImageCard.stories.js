@@ -1,20 +1,10 @@
-import StoryRouter from 'storybook-vue-router'
 import KkImageCard from './KkImageCard.vue'
-import { routesData } from '@/stories/data/routes'
 
 export default {
   title: 'Common/Molecules/KkImageCard',
   component: KkImageCard,
   parameters: {},
-  decorators: [
-    StoryRouter(
-      {},
-      {
-        routes: routesData,
-        initialEntry: '/',
-      },
-    ),
-  ],
+  decorators: [],
 }
 
 export const basic = () => ({
