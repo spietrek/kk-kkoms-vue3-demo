@@ -17,7 +17,7 @@
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
     "@tailwindcss/line-clamp": "^0.3.1",
-    "daisyui": "^2.2.2",
+    "daisyui": "^2.4.0",
     "vue": "^3.2.31",
     "vue-router": "^4.0.13",
     "vuex": "^4.0.2"
