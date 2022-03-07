@@ -6,7 +6,10 @@
     <button class="tw-btn tw-btn-primary tw-btn-sm" @click="increaseCount">
       Increase Count
     </button>
-    <button class="tw-btn tw-btn-primary tw-btn-sm" @click="decreaseCount">
+    <button
+      class="tw-btn tw-btn-primary tw-btn-sm tw-ml-4"
+      @click="decreaseCount"
+    >
       Decrease Count
     </button>
     <div class="tw-mt-16">New To Do Entered: {{ input }}</div>
