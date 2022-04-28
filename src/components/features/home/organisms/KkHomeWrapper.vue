@@ -1,5 +1,7 @@
 <template>
   <div class="dcb-wrapper">
+    <img :src="filePath" alt="logo" class="tw-mr-4 tw-object-cover" />
+
     <button class="tw-btn tw-btn-primary" @click="addCard">Add Card</button>
     <div class="tw--m-4 tw-flex tw-flex-wrap">
       <template v-for="card in cards" :key="card.title">
@@ -33,6 +35,10 @@ export default {
   },
 
   inject: {
+    filePath: {
+      from: 'filePath',
+      default: '',
+    },
     cards: {
       from: 'cards',
       default: () => [],
@@ -44,3 +50,5 @@ export default {
   },
 }
 </script>
+
+<style lang="less"></style>

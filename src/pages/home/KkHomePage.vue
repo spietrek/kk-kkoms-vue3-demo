@@ -56,6 +56,7 @@ export default {
     return {
       cards: this.cards,
       addCard: this.handleAddCard,
+      filePath: 'assets/images/krispy-kreme.png',
       pageProperties: {
         pageName: 'Home',
         pageTitle: 'KKOMS',
