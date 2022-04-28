@@ -2,7 +2,9 @@
   <div class="dcb-wrapper">
     <img :src="filePath" alt="logo" class="tw-mr-4 tw-object-cover" />
 
-    <button class="tw-btn tw-btn-primary" @click="addCard">Add Card</button>
+    <button class="tw-btn tw-btn-primary" @click="addCard">
+      {{ $t('features.home.organisms.kkhomewrapper.addCard') }}
+    </button>
     <div class="tw--m-4 tw-flex tw-flex-wrap">
       <template v-for="card in cards" :key="card.title">
         <span class="tw-p-4 md:tw-w-1/2 xl:tw-w-1/4">

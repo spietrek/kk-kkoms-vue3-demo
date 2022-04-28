@@ -1,8 +1,10 @@
-import { join } from 'path'
-import { JSONAdapter } from 'vue-translation-manager'
+const path = require('path')
+const { JSONAdapter } = require('vue-translation-manager')
 
-export const srcPath = join(__dirname, 'src/')
-export const adapter = new JSONAdapter({
-  path: join(__dirname, 'src/locales/'),
-})
-export const languages = ['en', 'ca']
+module.exports = {
+  srcPath: path.join(__dirname, 'src/'),
+  adapter: new JSONAdapter({
+    path: path.join(__dirname, 'src/locales/'),
+  }),
+  languages: ['fr-CA', 'en-US'],
+}

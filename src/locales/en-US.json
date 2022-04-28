@@ -1,0 +1,19 @@
+{
+  "features": {
+    "home": {
+      "organisms": {
+        "kkhomewrapper": {
+          "addCard": "Add Card"
+        }
+      }
+    },
+    "hrbridge": {
+      "organisms": {
+        "kkhrbridgewrapper2": {
+          "postsCreatedUsingComposition": "Posts Created (using Composition)",
+          "fromLastMonth": "\n          {1} from last month\n        "
+        }
+      }
+    }
+  }
+}
