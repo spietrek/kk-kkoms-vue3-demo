@@ -3,7 +3,7 @@
     <h1
       class="tw-title-font tw-text-neutral-400 tw-mb-2 tw-text-2xl tw-font-medium sm:tw-text-3xl"
     >
-      {{ title }}
+      <div v-html="title"></div>
     </h1>
 
     <div class="tw-h-1 tw-w-40 tw-rounded tw-bg-indigo-500"></div>

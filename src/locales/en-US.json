@@ -15,5 +15,11 @@
         }
       }
     }
+  },
+  "organisms": {
+    "kkpagewrapper": {
+      "title": "The Page title is {pageName}",
+      "inputName": "Enter a {inputName}"
+    }
   }
 }
