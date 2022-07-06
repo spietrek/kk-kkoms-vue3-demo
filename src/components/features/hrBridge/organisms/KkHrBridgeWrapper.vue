@@ -3,7 +3,7 @@
     <div class="tw-stats tw-shadow-2xl">
       <div class="tw-stat">
         <div class="tw-stat-title">
-          Cash Detail Total Amount. Model: {{ model }}.
+          Cash Detail Total Amount (from model): {{ model }}.
         </div>
         <div class="tw-stat-value tw-text-primary">
           <CurrencyInput

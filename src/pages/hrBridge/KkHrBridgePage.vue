@@ -1,6 +1,6 @@
 <template>
   <KkPageWrapper title="HR Bridge">
-    Cash Detail Total Amount: {{ cashDetailTotalAmount }}
+    Cash Detail Total Amount (from Store): {{ cashDetailTotalAmount }}
     <KkHrBridgeTemplate
       :cash-detail-total-amount="cashDetailTotalAmount"
       :on-update-cash="handleUpdateCash"
