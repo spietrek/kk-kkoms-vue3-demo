@@ -1,7 +1,9 @@
 <template>
   <section class="tw-body-font tw-text-gray-600">
     <div class="tw-p4 tw-container tw-mx-auto lg:tw-p-10">
-      <KkHrBridgeWrapper></KkHrBridgeWrapper>
+      <KkHrBridgeWrapper
+        :cash-detail-total-amount="cashDetailTotalAmount"
+      ></KkHrBridgeWrapper>
     </div>
   </section>
 </template>
@@ -14,6 +16,13 @@ export default {
 
   components: {
     KkHrBridgeWrapper,
+  },
+
+  props: {
+    cashDetailTotalAmount: {
+      type: Number,
+      default: null,
+    },
   },
 }
 </script>

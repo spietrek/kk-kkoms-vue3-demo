@@ -1,6 +1,8 @@
 <template>
   <KkPageWrapper title="HR Bridge">
-    <KkHrBridgeTemplate></KkHrBridgeTemplate>
+    <KkHrBridgeTemplate
+      :cash-detail-total-amount="cashDetailTotalAmount"
+    ></KkHrBridgeTemplate>
 
     <KkHrBridgeTemplate2>
       <KkHrBridgeWrapper2
@@ -8,6 +10,13 @@
         :posts-percentage="postsPercentage"
       ></KkHrBridgeWrapper2>
     </KkHrBridgeTemplate2>
+
+    <button
+      class="tw-btn tw-btn-primary tw-btn-sm"
+      @click="handleUpdateCurrency"
+    >
+      Update Currency
+    </button>
   </KkPageWrapper>
 </template>
 
@@ -31,7 +40,14 @@ export default {
     return {
       postsCreated: 120,
       postsPercentage: 1.2,
+      cashDetailTotalAmount: null,
     }
+  },
+
+  methods: {
+    handleUpdateCurrency() {
+      this.cashDetailTotalAmount = 9.99
+    },
   },
 
   provide() {

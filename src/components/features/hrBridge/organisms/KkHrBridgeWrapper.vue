@@ -2,10 +2,21 @@
   <div class="hr-bridge-wrapper">
     <div class="tw-stats tw-shadow-2xl">
       <div class="tw-stat">
-        <div class="tw-stat-title">Posts Created (using Provide/Inject)</div>
-        <div class="tw-stat-value tw-text-primary">{{ postsCreated }}</div>
-        <div class="tw-stat-desc">
-          {{ postsPercentageStatus }} from last month
+        <div class="tw-stat-title">Cash Detail Total Amount {{ model }}</div>
+        <div class="tw-stat-value tw-text-primary">
+          <CurrencyInput
+            autocomplete="off"
+            v-model="model"
+            @change="handleCashChange($event)"
+            :options="{
+              currency: 'CAD',
+              locale: 'fr-CA',
+              precision: 2,
+              valueRange: {
+                min: 0,
+              },
+            }"
+          />
         </div>
       </div>
     </div>
@@ -13,24 +24,47 @@
 </template>
 
 <script>
+import CurrencyInput from '@/components/molecules/KkCurrencyInput.vue'
+
 export default {
   name: 'KkHrBridgeWrapper',
 
+  components: { CurrencyInput },
+
+  data() {
+    return {
+      viewModel: this.cashDetailTotalAmount,
+    }
+  },
+
   computed: {
-    postsPercentageStatus() {
-      const trend = this.postsPercentage > 0 ? '↗︎' : '↘︎'
-      return `${trend} ${Math.abs(this.postsPercentage)}%`
+    model: {
+      get() {
+        return this.viewModel
+      },
+      set(newValue) {
+        this.viewModel = newValue
+      },
     },
   },
 
-  inject: {
-    postsCreated: {
-      from: 'postsCreated',
-      default: () => 0,
+  methods: {
+    handleCashChange(event) {
+      console.log('cash-change', event)
     },
-    postsPercentage: {
-      from: 'postsPercentage',
-      default: () => 0,
+  },
+
+  watch: {
+    cashDetailTotalAmount(newValue) {
+      console.log('NEWVALUE', newValue)
+      this.viewModel = newValue
+    },
+  },
+
+  props: {
+    cashDetailTotalAmount: {
+      type: Number,
+      default: null,
     },
   },
 }
