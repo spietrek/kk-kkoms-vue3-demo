@@ -2,7 +2,9 @@
   <div class="hr-bridge-wrapper">
     <div class="tw-stats tw-shadow-2xl">
       <div class="tw-stat">
-        <div class="tw-stat-title">Cash Detail Total Amount {{ model }}</div>
+        <div class="tw-stat-title">
+          Cash Detail Total Amount. Model: {{ model }}.
+        </div>
         <div class="tw-stat-value tw-text-primary">
           <CurrencyInput
             autocomplete="off"
@@ -52,12 +54,17 @@ export default {
   methods: {
     handleCashChange(event) {
       this.viewModel = event?.detail?.number ?? this.model
+      if (this.onUpdateCash) {
+        this.onUpdateCash(this.viewModel)
+      }
     },
   },
 
   watch: {
-    cashDetailTotalAmount(newValue) {
-      this.viewModel = newValue
+    cashDetailTotalAmount(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.viewModel = newValue
+      }
     },
   },
 
@@ -65,6 +72,10 @@ export default {
     cashDetailTotalAmount: {
       type: Number,
       default: null,
+    },
+    onUpdateCash: {
+      type: Function,
+      default: () => {},
     },
   },
 }

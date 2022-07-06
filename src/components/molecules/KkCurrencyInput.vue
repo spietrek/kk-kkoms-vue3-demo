@@ -12,7 +12,6 @@
 <script>
 import { watch } from 'vue'
 import useCurrencyInput from 'vue-currency-input'
-import { watchDebounced } from '@vueuse/core'
 
 export default {
   name: 'CurrencyInput',
@@ -32,29 +31,15 @@ export default {
     },
   },
 
-  emits: ['blur', 'change', 'update:modelValue'],
+  emits: ['blur', 'change'],
 
-  setup(props, { emit }) {
-    const { inputRef, numberValue, setOptions, setValue } = useCurrencyInput(
-      props.options,
-      false,
-    )
-
-    watchDebounced(numberValue, value => emit('update:modelValue', value), {
-      debounce: 1000,
-    })
+  setup(props) {
+    const { inputRef, setValue } = useCurrencyInput(props.options)
 
     watch(
       () => props.modelValue,
       value => {
         setValue(value)
-      },
-    )
-
-    watch(
-      () => props.options,
-      options => {
-        setOptions(options)
       },
     )
 

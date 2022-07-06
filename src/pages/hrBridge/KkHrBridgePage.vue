@@ -1,7 +1,9 @@
 <template>
   <KkPageWrapper title="HR Bridge">
+    Cash Detail Total Amount: {{ cashDetailTotalAmount }}
     <KkHrBridgeTemplate
       :cash-detail-total-amount="cashDetailTotalAmount"
+      :on-update-cash="handleUpdateCash"
     ></KkHrBridgeTemplate>
 
     <KkHrBridgeTemplate2>
@@ -11,16 +13,14 @@
       ></KkHrBridgeWrapper2>
     </KkHrBridgeTemplate2>
 
-    <button
-      class="tw-btn tw-btn-primary tw-btn-sm"
-      @click="handleUpdateCurrency"
-    >
-      Update Currency
+    <button class="tw-btn tw-btn-primary tw-btn-sm" @click="handleRetrieveCash">
+      Retrieve Cash
     </button>
   </KkPageWrapper>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import KkPageWrapper from '@/components/organisms/KkPageWrapper.vue'
 import KkHrBridgeTemplate from '@/components/features/hrBridge/templates/KkHrBridgeTemplate.vue'
 import KkHrBridgeTemplate2 from '@/components/features/hrBridge/templates/KkHrBridgeTemplate2.vue'
@@ -40,13 +40,22 @@ export default {
     return {
       postsCreated: 120,
       postsPercentage: 1.2,
-      cashDetailTotalAmount: null,
     }
   },
 
+  computed: {
+    ...mapGetters('hrBridge', ['cashDetailTotalAmount', 'isLoading']),
+  },
+
   methods: {
-    handleUpdateCurrency() {
-      this.cashDetailTotalAmount = 9.99
+    ...mapActions('hrBridge', ['getAsync', 'updateCash']),
+
+    handleRetrieveCash() {
+      this.getAsync()
+    },
+
+    handleUpdateCash(newValue) {
+      this.updateCash(newValue)
     },
   },
 
