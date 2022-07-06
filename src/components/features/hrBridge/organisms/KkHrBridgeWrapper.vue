@@ -33,6 +33,7 @@ export default {
 
   data() {
     return {
+      cashNumber: null,
       viewModel: this.cashDetailTotalAmount,
     }
   },
@@ -50,13 +51,12 @@ export default {
 
   methods: {
     handleCashChange(event) {
-      console.log('cash-change', event)
+      this.viewModel = event?.detail?.number ?? this.model
     },
   },
 
   watch: {
     cashDetailTotalAmount(newValue) {
-      console.log('NEWVALUE', newValue)
       this.viewModel = newValue
     },
   },
