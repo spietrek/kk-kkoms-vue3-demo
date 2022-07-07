@@ -3,7 +3,7 @@
     <div class="tw-p4 tw-container tw-mx-auto lg:tw-p-10">
       <KkHrBridgeWrapper
         :cash-detail-total-amount="cashDetailTotalAmount"
-        :on-update-cash="onUpdateCash"
+        :on-update-cash-in-store="onUpdateCashInStore"
       ></KkHrBridgeWrapper>
     </div>
   </section>
@@ -24,7 +24,7 @@ export default {
       type: Number,
       default: null,
     },
-    onUpdateCash: {
+    onUpdateCashInStore: {
       type: Function,
       default: () => {},
     },

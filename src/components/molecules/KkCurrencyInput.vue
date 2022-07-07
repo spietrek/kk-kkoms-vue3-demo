@@ -31,7 +31,7 @@ export default {
     },
   },
 
-  emits: ['blur', 'change'],
+  emits: ['blur', 'change', 'update:modelValue'],
 
   setup(props) {
     const { inputRef, setValue } = useCurrencyInput(props.options)

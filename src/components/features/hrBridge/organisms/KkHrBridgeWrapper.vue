@@ -9,7 +9,7 @@
           <CurrencyInput
             autocomplete="off"
             v-model="model"
-            @change="handleCashChange($event)"
+            @change="handleCashModelChange($event)"
             :options="{
               currency: 'CAD',
               locale: 'fr-CA',
@@ -35,7 +35,6 @@ export default {
 
   data() {
     return {
-      cashNumber: null,
       viewModel: this.cashDetailTotalAmount,
     }
   },
@@ -52,10 +51,10 @@ export default {
   },
 
   methods: {
-    handleCashChange(event) {
+    handleCashModelChange(event) {
       this.viewModel = event?.detail?.number ?? this.model
-      if (this.onUpdateCash) {
-        this.onUpdateCash(this.viewModel)
+      if (this.onUpdateCashInStore) {
+        this.onUpdateCashInStore(this.viewModel)
       }
     },
   },
@@ -73,7 +72,7 @@ export default {
       type: Number,
       default: null,
     },
-    onUpdateCash: {
+    onUpdateCashInStore: {
       type: Function,
       default: () => {},
     },
