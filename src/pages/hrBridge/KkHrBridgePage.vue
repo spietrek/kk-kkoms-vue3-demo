@@ -1,7 +1,9 @@
 <template>
   <KkPageWrapper title="HR Bridge">
     Cash Detail Total Amount (from Store): {{ cashDetailTotalAmount }}
+    <h1 v-if="isLoading">Loading...</h1>
     <KkHrBridgeTemplate
+      v-if="!isLoading"
       :cash-detail-total-amount="cashDetailTotalAmount"
       :on-update-cash-in-store="handleUpdateCashInStore"
     ></KkHrBridgeTemplate>
@@ -48,10 +50,10 @@ export default {
   },
 
   methods: {
-    ...mapActions('hrBridge', ['getAsync', 'updateCash']),
+    ...mapActions('hrBridge', ['getCashAsync', 'updateCash']),
 
     handleRetrieveCash() {
-      this.getAsync()
+      this.getCashAsync()
     },
 
     handleUpdateCashInStore(newValue) {

@@ -52,15 +52,19 @@ export default {
 
   methods: {
     handleCashModelChange(event) {
-      this.viewModel = event?.detail?.number ?? this.model
-      if (this.onUpdateCashInStore) {
-        this.onUpdateCashInStore(this.viewModel)
+      const value = event?.detail.number ?? null
+      if (value) {
+        this.viewModel = value
+        if (this.onUpdateCashInStore) {
+          this.onUpdateCashInStore(this.viewModel)
+        }
       }
     },
   },
 
   watch: {
     cashDetailTotalAmount(newValue, oldValue) {
+      console.log('cashDetailTotalAmount changed', newValue, oldValue)
       if (newValue !== oldValue) {
         this.viewModel = newValue
       }

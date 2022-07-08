@@ -1,8 +1,10 @@
 const state = {
   cash: null,
+  loading: false,
 }
 
 const getters = {
+  isLoading: state => state.loading,
   cashDetailTotalAmount: state => {
     return state.cash
   },
@@ -13,13 +15,14 @@ const mutations = {
     state.cash = payload
   },
   setLoading(state, payload) {
-    state.isLoading = payload
+    state.loading = payload
   },
 }
 
 const actions = {
-  getAsync({ commit }) {
+  getCashAsync({ commit }) {
     commit('setLoading', true)
+    commit('setCash', null)
     new Promise(resolve => {
       setTimeout(() => {
         const random = Math.floor(Math.random() * (1000 - 100) + 100) / 100
